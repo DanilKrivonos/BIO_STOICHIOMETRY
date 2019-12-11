@@ -220,7 +220,7 @@ else:
         ΔG_of_reaction_alt_C =  round(round(A7, 5) * ΔG8 - round(A4, 5) *ΔG4 - round(A1 , 5) * ΔG1, 5)
         print('ΔG(reaction with alternative C) = ΔG(ADB) + ΔGdissipation + {}X + {} kJ/mol'.format(ΔG_of_reaction_alt_CX, ΔG_of_reaction_alt_C))
     else:
-        ΔG_of_reaction_alt_CX = round(K3 * ΔG7 + K5 * ΔG6 + K7 * ΔG8 - K1 * ΔG1, 5)
+        ΔG_of_reaction_alt_CX = round(K3 * ΔG7 + K5 * ΔG6 + K5 * ΔG8 - K1 * ΔG1, 5)
         ΔG_of_reaction_alt_C = round(- round(A7, 5)* ΔG6 + round(A6, 5) * ΔG8 - round(A1, 5) * ΔG1, 5)
         print('ΔG(reaction with alternative C) = ΔG(ADB) + ΔGdissipation + {}X + {} kJ/mol'.format(ΔG_of_reaction_alt_CX, ΔG_of_reaction_alt_C))
 
