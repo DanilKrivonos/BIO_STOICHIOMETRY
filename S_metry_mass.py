@@ -10,9 +10,9 @@ parser.add_argument('-O_start', type=int, help='O_start', required=True)
 parser.add_argument('-C_alt', type=int, help='C_alt', required=True)
 parser.add_argument('-H_alt', type=int, help='H_alt', required=True)
 parser.add_argument('-O_alt', type=int, help='O_alt', required=True)
+parser.add_argument('-G_C_source', type=float, help='Gibbs energy of C source', required=True)
 parser.add_argument('-G_C_alt_source', type=float, help='G_C_alt_source', required=True)
 parser.add_argument('-Y', type=float, help='ECONOM_COEF', required=True)
-parser.add_argument('-G_C_source', type=float, help='Gibbs energy of C source', required=True)
 args = parser.parse_args()
 
 A1 = 0
@@ -45,21 +45,21 @@ A2 = N_ /14
 if (A1 * 12 + A2 * 5 - H_ /1) > 0:
     A4 = 0 
     A6 = (A1 * 12 + A2 * 5 - H_ /1) * 0.5
-    if (A1 * 6 + A2 * 1 - O_ /16 - A7 * 1) > 0:
+    if (A1 * 6 + A2 * 1 - O_ /16 - A7 * 1 - A6 * 1) > 0:
         A3 = 0 
-        A7 = (A1 * 6 + A2 * 1 - O_ /16 - A7 * 1) * 0.5
+        A7 = (A1 * 6 + A2 * 1 - O_ /16 - A6 * 1) * 0.5
     else:
         A7 = 0
-        A3 = (+ O_ /16 + A7 * 1 - A1 * 6 + A2 * 1) * 0.5
+        A3 = (+ O_ /16 + A6 * 1 - A1 * 6 + A2 * 1) * 0.5
 else:
-    A7 = 0
-    A3 = (H_ /1 - (A1 * 12 + A2 * 5)) * 0.5
-    if (A1 * 6 + A2 * 1 - O_ /16 - A7 * 1) > 0:
+    A6 = 0
+    A4 = (H_ /1 - (A1 * 12 + A2 * 5)) * 0.5
+    if (A1 * 6 + A2 * 1 + A4 * 1 - O_ /16 - A6 * 1) > 0:
         A3 = 0 
-        A7 = (A1 * 6 + A2 * 1 - O_ /16 - A7 * 1) * 0.5
+        A7 = (A1 * 6 + A2 * 1 - O_ /16 - A6 * 1) * 0.5
     else:
         A7 = 0
-        A3 = (+ O_ /16 + A7 * 1 - A1 * 6 + A2 * 1) * 0.5
+        A3 = (+ O_ /16 + A6 * 1 - A1 * 6 + A2 * 1) * 0.5
         
 if A3 == 0:
     if A4 == 0:
@@ -147,21 +147,21 @@ A2 = N_ /14
 if (A1 * 12 + A2 * 5 - H_ /1) > 0:
     A4 = 0 
     A6 = (A1 * 12 + A2 * 5 - H_ /1) * 0.5
-    if (A1 * 6 + A2 * 1 - O_ /16 - A7 * 1) > 0:
+    if (A1 * 6 + A2 * 1 - O_ /16 - A7 * 1 - A6 * 1) > 0:
         A3 = 0 
-        A7 = (A1 * 6 + A2 * 1 - O_ /16 - A7 * 1) * 0.5
+        A7 = (A1 * 6 + A2 * 1 - O_ /16 - A6 * 1) * 0.5
     else:
         A7 = 0
-        A3 = (+ O_ /16 + A7 * 1 - A1 * 6 + A2 * 1) * 0.5
+        A3 = (+ O_ /16 + A6 * 1 - A1 * 6 + A2 * 1) * 0.5
 else:
-    A7 = 0
-    A3 = (H_ /1 - (A1 * 12 + A2 * 5)) * 0.5
-    if (A1 * 6 + A2 * 1 - O_ /16 - A7 * 1) > 0:
+    A6 = 0
+    A4 = (H_ /1 - (A1 * 12 + A2 * 5)) * 0.5
+    if (A1 * 6 + A2 * 1 + A4 * 1 - O_ /16 - A6 * 1) > 0:
         A3 = 0 
-        A7 = (A1 * 6 + A2 * 1 - O_ /16 - A7 * 1) * 0.5
+        A7 = (A1 * 6 + A2 * 1 - O_ /16 - A6 * 1) * 0.5
     else:
         A7 = 0
-        A3 = (+ O_ /16 + A7 * 1 - A1 * 6 + A2 * 1) * 0.5
+        A3 = (+ O_ /16 + A6 * 1 - A1 * 6 + A2 * 1) * 0.5
 
 if A3 == 0:
     if A4 == 0:
