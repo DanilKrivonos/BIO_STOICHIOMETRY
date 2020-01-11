@@ -1,5 +1,5 @@
 import argparse 
-parser = argparse.ArgumentParser(description='Draw sbgraph')
+parser = argparse.ArgumentParser(description='Metabolism simle model')
 parser.add_argument('-C_prod', type=float, help='C_prod', required=True)
 parser.add_argument('-H_prod', type=float, help='H_prod', required=True)
 parser.add_argument('-N_prod', type=float, help='N_prod', required=True)
